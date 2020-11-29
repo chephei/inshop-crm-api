@@ -45,7 +45,7 @@ class GoogleClient
         $this->googleClient->setApplicationName('Google calendar sync');
         $this->googleClient->setScopes([\Google_Service_Calendar::CALENDAR]);
         $this->googleClient->setPrompt('select_account consent');
-        $this->googleClient->setRedirectUri('http://localhost:8080');
+        $this->googleClient->setRedirectUri('http://192.168.15.16:8080');
         $this->googleClient->setAccessType('offline');
 
         $this->refresh($user);

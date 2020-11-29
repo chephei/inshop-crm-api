@@ -198,6 +198,7 @@ cd ..
 
 ```bash
 docker-compose exec --user=www-data php sh ./setup.sh
+docker-compose exec php sh ./setup.sh
 ```
 
 Enter pass phrase for config/jwt/private.pem: **!ChangeMe!**  

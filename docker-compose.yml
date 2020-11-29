@@ -1,6 +1,16 @@
 version: '3.2'
 
 services:
+  client:
+    restart: always
+    image: inshopgroup/inshop-crm-client
+    volumes: 
+      - ./nginx_cl.conf:/etc/nginx/conf.d/default.conf
+    env_file:
+      - ./.env
+    ports:
+      - ${PORT_CLIENT}:80
+
   php:
     image: inshopgroup/docker-inshop-crm-api-php-fpm-dev:latest
     depends_on:
@@ -19,6 +29,7 @@ services:
       - php
     volumes:
       - ./public:/var/www/public:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - ${PORT_API}:80
     networks:
